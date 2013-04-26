@@ -1,0 +1,4 @@
+---
+
+- include: playbooks/database.yml
+- include: playbooks/web.yml

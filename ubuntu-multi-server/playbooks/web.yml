@@ -1,0 +1,8 @@
+---
+
+- hosts: webservers
+  user: root
+  tasks:
+  - include: ../roles/common/tasks/main.yml
+  - include: ../roles/web/tasks/apache2.yml
+  - include: ../roles/web/tasks/phpinfo.yml

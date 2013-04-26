@@ -1,0 +1,10 @@
+---
+
+- hosts: dbservers
+  user: root
+  tasks: 
+     - include: ../roles/common/tasks/main.yml 
+     - include: ../roles/database/tasks/main.yml
+  handlers:
+     - include: ../roles/database/handlers/main.yml
+     - include: ../roles/common/handlers/main.yml 
