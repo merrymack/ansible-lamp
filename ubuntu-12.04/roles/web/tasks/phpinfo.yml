@@ -1,0 +1,7 @@
+---
+
+- name: Delete index.html
+  file: path=/var/www/index.html state=absent
+
+- name: Place index.php
+  template: src=../roles/web/templates/index.php.j2 dest=/var/www/index.php

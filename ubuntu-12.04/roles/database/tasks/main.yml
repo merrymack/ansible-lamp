@@ -1,0 +1,16 @@
+---
+
+- name: Install MySQL
+  action: apt pkg=$item state=installed
+  with_items:
+   - mysql-server
+   - python-mysqldb
+
+- name: Write my.cnf
+  action: template src=../roles/database/templates/my.cnf.j2 dest=/etc/my.cnf
+  notify: 
+  - Restart MySQL
+
+- name: Start service MySQL
+  service: name=mysql state=started enabled=true
+  ignore_errors: yes

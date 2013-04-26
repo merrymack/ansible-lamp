@@ -1,0 +1,14 @@
+---
+
+- name: Install NTP
+  apt: name=ntp state=present
+  tags: ntp
+
+- name: Configure file ntp.conf
+  template: src=../roles/common/templates/ntp.conf.j2 dest=/etc/ntp.conf
+  tags: ntp
+  notify: restart ntp
+
+- name: Service NTP
+  service: name=ntp state=started enabled=true
+  tags: ntp

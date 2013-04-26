@@ -1,0 +1,11 @@
+---
+
+- name: Install apache2, php, and modules
+  action: apt  name=$item state=installed
+  with_items:
+   - apache2
+   - php5
+   - php5-mysqlnd
+
+- name: Apache2 service state
+  service: name=apache2 state=started enabled=yes
